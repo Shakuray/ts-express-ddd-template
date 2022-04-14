@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  backend:
+    image: 'template'
+    restart: always
+    build:
+      context: ./
+    ports: 
+      - 3000:3000
