@@ -3,7 +3,7 @@ import GetItemQueryHandler from "../../Application/GetItemQueryHandler";
 import ItemMemoryRepository from "../Infrastructure/ItemMemoryRepository";
 import ItemNotFound from "../../Domain/Exception/ItemNotFound";
 
-export async function GetItem(req: Request, res: Response) {
+export default async function GetItemController(req: Request, res: Response) {
     const queryHandler = GetItemQueryHandler(new ItemMemoryRepository());
     try {
         const response = await queryHandler({

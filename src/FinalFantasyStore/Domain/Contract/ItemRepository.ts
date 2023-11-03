@@ -2,5 +2,6 @@ import Item from "../Item";
 import ItemID from "../ValueObject/ItemID";
 
 export default interface ItemRepository {
-    getItem(id: ItemID): Promise<Item>;
+    get(id: ItemID): Promise<Item>;
+    add(item: Item): Promise<void>;
 }

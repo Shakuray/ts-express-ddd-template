@@ -12,10 +12,14 @@ export default class ItemMemoryRepository implements ItemRepository {
         new Item("EEE", "Antidote", 80),
     ];
 
-    async getItem(id: ItemID): Promise<Item> {
+    async get(id: ItemID): Promise<Item> {
         const foundItem = this.items.find((item) => item.ID.equals(id));
         if (!foundItem) throw new ItemNotFound(id);
 
         return foundItem;
+    }
+
+    async add(item: Item): Promise<void> {
+        this.items.push(item);
     }
 }
