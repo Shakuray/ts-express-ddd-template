@@ -15,7 +15,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY --from=build /app/dist /app/dist
 
-RUN npm install --only=prod
+RUN npm install --omit=dev
 
 EXPOSE 3000
 CMD node dist/tsc/index.js
