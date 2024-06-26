@@ -1,8 +1,4 @@
-export default class CouldNotCreateItem extends Error {
-    constructor(reason: string) {
-        super(reason);
-    }
-}
+export default class CouldNotCreateItem extends Error {}
 
 export class NullItemIdentifier extends CouldNotCreateItem {
     constructor() {
@@ -14,8 +10,8 @@ export class NullItemName extends CouldNotCreateItem {
         super("Item name is null");
     }
 }
-export class NegativeItemPrice extends CouldNotCreateItem {
+export class InvalidPrice extends CouldNotCreateItem {
     constructor() {
-        super("Item price could not be a negative number");
+        super("Item price can't be less than 10");
     }
 }

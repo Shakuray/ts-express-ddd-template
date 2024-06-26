@@ -7,6 +7,7 @@ const GetItemQueryHandler =
     (repo: ItemRepository) =>
     async (query: GetItemQuery): Promise<ItemResponse> => {
         const item = await repo.get(new ItemID(query.id));
+
         return MapItemToResponse(item);
     };
 

@@ -1,8 +1,4 @@
-import {
-    NullItemIdentifier,
-    NullItemName,
-    NegativeItemPrice,
-} from "./Exception/CouldNotCreateItem";
+import { NullItemIdentifier, NullItemName, InvalidPrice } from "./Exception/CouldNotCreateItem";
 import ItemID from "./ValueObject/ItemID";
 import ItemName from "./ValueObject/ItemName";
 import ItemPrice from "./ValueObject/ItemPrice";
@@ -19,7 +15,7 @@ export default class Item {
         if (!name) throw new NullItemName();
         this.name = new ItemName(name);
 
-        if (!price || price < 0) throw new NegativeItemPrice();
+        if (!price || price < 10) throw new InvalidPrice();
         this.price = new ItemPrice(price);
     }
 }
